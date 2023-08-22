@@ -32,7 +32,20 @@ public class Recommender {
         // Randoms.pickNumberInRange(0, 4)로 돌려주면 MINUS 없어도 됨
         Category category = categories.get(Randoms.pickNumberInRange(1, 5) - MINUS_INDEX);
         if (categoryMap.isNotDuplicate(category)) {
+            selectFoods(category.getMenus());
             categoryMap.add(category.getType());
         }
+    }
+
+    private void selectFoods(List<String> menus) {
+        information.forEach(coach -> {
+            String recommend;
+            boolean duplicated;
+            do {
+                recommend = Randoms.shuffle(menus).get(0);
+                duplicated = menuMap.isDuplicate(coach.getName(), recommend);
+            } while (duplicated || coach.isHateFood(recommend));
+            menuMap.add(coach.getName(), recommend);
+        });
     }
 }
