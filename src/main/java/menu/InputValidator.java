@@ -10,7 +10,34 @@ public class InputValidator {
     private static final String BLANK = " ";
 
     public void validateCoachNames(String names) {
+        validateStringHasBlank(names);
         validateNamesSeparatedByComma(names);
+    }
+
+    public void validateFoods(String foods) {
+        validateStringHasBlank(foods);
+        validateFoodsSeparatedByComma(foods);
+    }
+    private void validateStringHasBlank(String string) {
+        if (string.contains(BLANK)) {
+            throw new IllegalArgumentException(ErrorMessage.NO_BLANK.getMessage());
+        }
+    }
+
+    private void validateFoodsSeparatedByComma(String foods) {
+        List<String> foodsList;
+        try {
+            foodsList = Arrays.asList(foods.split(COMMA));
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(ErrorMessage.FOODS_SEPARATED_COMMA.getMessage());
+        }
+        validateFoodCount(foodsList);
+    }
+
+    private void validateFoodCount(List<String> foods) {
+        if(foods.size() > ObjectSize.MAXIMUM_FOOD_LIST_SIZE.getSize()) {
+            throw new IllegalArgumentException(ErrorMessage.FOOD_COUNT.getMessage());
+        }
     }
 
     private void validateNamesSeparatedByComma(String names) {
