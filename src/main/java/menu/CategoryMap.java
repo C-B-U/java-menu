@@ -1,5 +1,6 @@
 package menu;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class CategoryMap {
@@ -16,8 +17,9 @@ public class CategoryMap {
         return map.size();
     }
 
-    public boolean isNotDuplicate(Category category) {
-        return !map.contains(category.getType());
+    public boolean isDuplicateMoreThanTwice(Category category) {
+        int count = Collections.frequency(map, category.getType());
+        return count == 2;
     }
 
     public String draw() {

@@ -31,7 +31,7 @@ public class Recommender {
         // 테스트코드 때문에 MINUS-INDEX 작성
         // Randoms.pickNumberInRange(0, 4)로 돌려주면 MINUS 없어도 됨
         Category category = categories.get(Randoms.pickNumberInRange(1, 5) - MINUS_INDEX);
-        if (categoryMap.isNotDuplicate(category)) {
+        if (!categoryMap.isDuplicateMoreThanTwice(category)) {
             selectFoods(category.getMenus());
             categoryMap.add(category.getType());
         }
