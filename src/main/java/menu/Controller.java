@@ -11,6 +11,11 @@ public class Controller {
         this.outputView = outputView;
     }
 
+    public void play() {
+        survey();
+        recommend();
+    }
+
     public void survey() {
         outputView.printStartMessage();
         outputView.printRequestCoachNameMessage();
@@ -18,13 +23,12 @@ public class Controller {
             outputView.printRequestHateFoodMessage(name);
             coachInformation.put(name, inputView.readHateFood());
         });
-        recommend();
     }
 
     private void recommend() {
-        String result = recommender.run(coachInformation.getInformation());
+        recommender.run(coachInformation.getInformation());
         outputView.printRecommendMessage();
-        outputView.printFoodMap(result);
+        outputView.printRecommendMenus(recommender.getRecommendMenus());
         outputView.printFinishedMessage();
     }
 }
