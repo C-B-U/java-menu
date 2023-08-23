@@ -5,7 +5,7 @@ import java.util.*;
 public class MenuMap {
     private final LinkedHashMap<String, List<String>> map = new LinkedHashMap<>();
     private static final int FIRST_INDEX = 0;
-    private String resultMap = "";
+    private String recommendMap = "";
 
     public MenuMap (List<Coach> information) {
         information.forEach(info -> map.put(info.getName(), new ArrayList<>()));
@@ -19,12 +19,12 @@ public class MenuMap {
         return map.get(name).contains(recommend);
     }
 
-    public String draw() {
+    public String getMenuMap() {
         map.forEach((name, menus) -> {
             menus.add(FIRST_INDEX, name);
-            resultMap += join(menus);
+            recommendMap += join(menus);
         });
-        return resultMap;
+        return recommendMap;
     }
 
     private String join(List<String> element) {
