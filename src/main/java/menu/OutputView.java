@@ -17,7 +17,7 @@ public class OutputView {
         System.out.println(ProcessMessage.NEW_LINE_MESSAGE.getMessage() + ProcessMessage.RECOMMEND_MESSAGE.getMessage());
     }
 
-    public void printFoodMap(String result) {
+    public void printRecommendMenus(String result) {
         System.out.println(ProcessMessage.WEEKDAY_MESSAGE.getMessage());
         System.out.println(result);
     }
