@@ -13,12 +13,15 @@ public class Recommender {
     private CategoryMap categoryMap;
     private MenuMap menuMap;
 
-    public String run(List<Coach> coachInformation) {
+    public void run(List<Coach> coachInformation) {
         information = coachInformation;
         categoryMap = new CategoryMap();
         menuMap = new MenuMap(information);
         select();
-        return categoryMap.draw() + menuMap.draw();
+    }
+
+    public String getRecommendMenus() {
+        return categoryMap.getCategoryMap() + menuMap.getMenuMap();
     }
 
     private void select() {
@@ -28,8 +31,6 @@ public class Recommender {
     }
 
     private void selectCategory(CategoryMap categoryMap) {
-        // 테스트코드 때문에 MINUS-INDEX 작성
-        // Randoms.pickNumberInRange(0, 4)로 돌려주면 MINUS 없어도 됨
         Category category = categories.get(Randoms.pickNumberInRange(1, 5) - MINUS_INDEX);
         if (!categoryMap.isDuplicateMoreThanTwice(category)) {
             selectFoods(category.getMenus());
