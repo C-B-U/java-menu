@@ -4,8 +4,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class CategoryMap {
-    private static final String CATEGORY_PREFIX = "카테고리";
     private static final int FIRST_INDEX = 0;
+    private static final int TWICE_DUPLICATE = 2;
+    private static final String CATEGORY_PREFIX = "카테고리";
     private final LinkedList<String> map = new LinkedList<>();
 
 
@@ -19,10 +20,10 @@ public class CategoryMap {
 
     public boolean isDuplicateMoreThanTwice(Category category) {
         int count = Collections.frequency(map, category.getType());
-        return count == 2;
+        return count == TWICE_DUPLICATE;
     }
 
-    public String draw() {
+    public String getCategoryMap() {
         map.add(FIRST_INDEX, CATEGORY_PREFIX);
         return join();
     }
