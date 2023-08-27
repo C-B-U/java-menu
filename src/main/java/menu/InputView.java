@@ -30,7 +30,7 @@ public class InputView {
         return input;
     }
 
-    public List<String> readHateFood() {
+    public List<String> readFoodCannotEat() {
         String foods;
         do {
             foods = inputHateFood();

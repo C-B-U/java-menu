@@ -3,7 +3,7 @@ package menu;
 public class Controller {
     private final InputView inputView;
     private final OutputView outputView;
-    private final Recommender recommender = new Recommender();
+    private final RecommendSystem recommendSystem = new RecommendSystem();
     private final CoachInformation coachInformation = new CoachInformation();
 
     public Controller(InputView inputView, OutputView outputView) {
@@ -21,14 +21,14 @@ public class Controller {
         outputView.printRequestCoachNameMessage();
         inputView.readCoachNames().forEach(name -> {
             outputView.printRequestHateFoodMessage(name);
-            coachInformation.put(name, inputView.readHateFood());
+            coachInformation.put(name, inputView.readFoodCannotEat());
         });
     }
 
     private void recommend() {
-        recommender.run(coachInformation.getInformation());
+        recommendSystem.run(coachInformation.getInformation());
         outputView.printRecommendMessage();
-        outputView.printRecommendMenus(recommender.getRecommendMenus());
+        outputView.printRecommendMenus(recommendSystem.getRecommendMenus());
         outputView.printFinishedMessage();
     }
 }

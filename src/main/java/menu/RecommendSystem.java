@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 
-public class Recommender {
+public class RecommendSystem {
     private static final int WEEK_DAY_LENGTH = 5;
     private static final int MINUS_INDEX = 1;
     private final List<Category> categories = Arrays.asList(Category.values());
@@ -45,7 +45,7 @@ public class Recommender {
             do {
                 recommend = Randoms.shuffle(menus).get(0);
                 duplicated = menuMap.isDuplicate(coach.getName(), recommend);
-            } while (duplicated || coach.isHateFood(recommend));
+            } while (duplicated || coach.cannotEat(recommend));
             menuMap.add(coach.getName(), recommend);
         });
     }
