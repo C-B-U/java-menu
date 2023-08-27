@@ -11,7 +11,7 @@ public class Controller {
         this.outputView = outputView;
     }
 
-    public void play() {
+    public void start() {
         survey();
         recommend();
     }
