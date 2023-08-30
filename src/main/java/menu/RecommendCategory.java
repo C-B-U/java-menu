@@ -8,6 +8,7 @@ import java.util.List;
 public class RecommendCategory {
 
     private static final int CATEGORY_COUNT = 5;
+    private static final int MAX_DUPLICATE_COUNT = 2;
     private final List<String> categories = new ArrayList<>();
 
     public void recommendCategory() {
@@ -23,11 +24,15 @@ public class RecommendCategory {
         long count = categories.stream()
                 .filter(category -> category.equals(newCategory))
                 .count();
-        return count < 2;
+        return count < MAX_DUPLICATE_COUNT;
     }
 
     public List<String> getCategories() {
         return categories;
+    }
+
+    public int getCategoryCount(){
+        return categories.size();
     }
 }
 
