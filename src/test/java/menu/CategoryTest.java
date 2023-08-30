@@ -14,7 +14,7 @@ class CategoryTest {
     @DisplayName("추천 카테고리가 카테고리 수 만큼 저장이 되는지 확인한다.")
     void checkSaveRecommendCategories(){
         //given
-        recommendCategory.recommendCategory();
+        recommendCategory.createRecommendCategory();
 
         //when
         List<String> categories = recommendCategory.getCategories();

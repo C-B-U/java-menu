@@ -17,8 +17,8 @@ class MenuTest {
     void checkSaveRecommendMenus(){
         RecommendMenu recommendMenu = new RecommendMenu();
         RecommendCategory recommendCategory = new RecommendCategory();
-        recommendCategory.recommendCategory();
-        recommendMenu.recommendMenu(coachNames, forbiddenMenu, recommendCategory);
+        recommendCategory.createRecommendCategory();
+        recommendMenu.createRecommendMenu(coachNames, forbiddenMenu, recommendCategory);
 
         assertThat(recommendMenu.getMenus().size()).isEqualTo(3);
     }
