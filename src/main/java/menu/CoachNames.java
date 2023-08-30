@@ -20,11 +20,11 @@ public class CoachNames {
     }
 
     private void addValidateCoachName(String name){
-        validateCoachCount(name);
+        validateCoachNameLength(name);
         coachNames.add(name);
     }
 
-    private void validateCoachCount(String name) {
+    private void validateCoachNameLength(String name) {
         if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(
                     String.format(ErrorMessage.COACH_NAME_LENGTH_ERROR.toString(), MIN_NAME_LENGTH, MAX_NAME_LENGTH));
