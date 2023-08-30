@@ -1,7 +1,6 @@
 package menu;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.function.Supplier;
 
 
 public class InputView {
@@ -9,37 +8,50 @@ public class InputView {
     private final OutputView outputView = new OutputView();
     private final InputValidator inputValidator = new InputValidator();
 
+    public CoachNames readCoachName(){
+        CoachNames coachNames;
+        do {
+            coachNames = inputCoachName();
+        }while (coachNames == null);
+        return coachNames;
+    }
 
-    public CoachNames inputCoachName(){
-        return attemptInput(() -> {
-            outputView.printCoachNameMessage();
-            String coachName = Console.readLine();
-            outputView.printEnter();
+
+    private CoachNames inputCoachName(){
+        outputView.printCoachNameMessage();
+        String coachName = Console.readLine();
+        outputView.printEnter();
+        try{
             inputValidator.validateCommaContain(coachName);
             return new CoachNames(coachName);
-        });
+        } catch (IllegalArgumentException e){
+            outputView.printErrorMessage(e.getMessage());
+            return null;
+        }
     }
 
-    public ForbiddenMenu inputForbiddenMenu(CoachNames coachNames){
-        return attemptInput(() -> {
-            ForbiddenMenu forbiddenMenu = new ForbiddenMenu();
-            for (String coachName: coachNames.getCoachNames()){
-                outputView.printCoachesForbiddenMenu(coachName);
-                String inputMenu = Console.readLine();
-                outputView.printEnter();
+    public ForbiddenMenu readForbiddenMenu(CoachNames coachNames){
+        ForbiddenMenu forbiddenMenu;
+        do {
+            forbiddenMenu = inputForbiddenMenu(coachNames);
+        }while (forbiddenMenu == null);
+        return forbiddenMenu;
+    }
+
+    private ForbiddenMenu inputForbiddenMenu(CoachNames coachNames){
+        ForbiddenMenu forbiddenMenu = new ForbiddenMenu();
+        for (String coachName: coachNames.getCoachNames()){
+            outputView.printCoachesForbiddenMenu(coachName);
+            String inputMenu = Console.readLine();
+            outputView.printEnter();
+            try {
                 inputValidator.validateForbiddenMenuCount(inputMenu);
                 forbiddenMenu.add(coachName, inputMenu);
+            }catch (IllegalArgumentException e){
+                outputView.printErrorMessage(e.getMessage());
+                return null;
             }
-            return forbiddenMenu;
-        });
-    }
-
-    private <T> T attemptInput(Supplier<T> supplier){
-        try{
-            return supplier.get();
-        }catch (IllegalArgumentException e){
-            outputView.printErrorMessage(e.getMessage());
-            return supplier.get();
         }
+        return forbiddenMenu;
     }
 }

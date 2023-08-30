@@ -16,8 +16,8 @@ public class MenuController {
 
     public void StartRecommend(){
         outputView.printStartMenu();
-        CoachNames coachNames = inputView.inputCoachName();
-        ForbiddenMenu forbiddenMenu = inputView.inputForbiddenMenu(coachNames);
+        CoachNames coachNames = inputView.readCoachName();
+        ForbiddenMenu forbiddenMenu = inputView.readForbiddenMenu(coachNames);
         recommendCategory.createRecommendCategory();
         recommendMenu.createRecommendMenu(coachNames, forbiddenMenu, recommendCategory);
         outputView.printRecommendResult(recommendMenu, recommendCategory);
