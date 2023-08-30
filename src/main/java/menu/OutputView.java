@@ -3,7 +3,7 @@ package menu;
 public class OutputView {
 
     public void printCoachNameMessage(){
-        System.out.println(ProcessMessage.InputCoachName);
+        System.out.println(ProcessMessage.INPUT_COACH_NAME);
     }
 
     public void printErrorMessage(String error){
