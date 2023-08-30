@@ -1,4 +1,4 @@
-package menu;
+package menu.constant;
 
 public enum ProcessMessage {
     INPUT_COACH_NAME("코치의 이름을 입력해 주세요. (, 로 구분)"),

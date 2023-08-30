@@ -1,6 +1,8 @@
-package menu;
+package menu.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.constant.Categories;
+import menu.constant.OutputElement;
 
 import java.util.ArrayList;
 import java.util.List;

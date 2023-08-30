@@ -1,4 +1,4 @@
-package menu;
+package menu.constant;
 
 public enum Days {
     MONDAY("월요일"),

@@ -1,4 +1,4 @@
-package menu;
+package menu.model;
 
 import java.util.*;
 import java.util.stream.Collectors;

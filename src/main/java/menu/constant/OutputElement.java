@@ -1,4 +1,4 @@
-package menu;
+package menu.constant;
 
 public enum OutputElement {
     FIRST_ELEMENT("[ "),

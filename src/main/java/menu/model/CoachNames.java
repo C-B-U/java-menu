@@ -1,4 +1,6 @@
-package menu;
+package menu.model;
+
+import menu.constant.ErrorMessage;
 
 import java.util.ArrayList;
 import java.util.Arrays;

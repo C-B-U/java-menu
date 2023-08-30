@@ -1,5 +1,9 @@
 package menu;
 
+import menu.model.CoachNames;
+import menu.model.ForbiddenMenu;
+import menu.model.RecommendCategory;
+import menu.model.RecommendMenu;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;

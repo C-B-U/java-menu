@@ -1,4 +1,6 @@
-package menu;
+package menu.view.validate;
+
+import menu.constant.ErrorMessage;
 
 import java.util.Arrays;
 

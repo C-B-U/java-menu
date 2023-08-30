@@ -1,4 +1,9 @@
-package menu;
+package menu.view;
+
+import menu.model.RecommendCategory;
+import menu.model.RecommendMenu;
+import menu.constant.Days;
+import menu.constant.ProcessMessage;
 
 public class OutputView {
 

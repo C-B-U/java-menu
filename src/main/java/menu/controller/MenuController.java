@@ -1,4 +1,11 @@
-package menu;
+package menu.controller;
+
+import menu.model.CoachNames;
+import menu.model.ForbiddenMenu;
+import menu.model.RecommendCategory;
+import menu.model.RecommendMenu;
+import menu.view.InputView;
+import menu.view.OutputView;
 
 public class MenuController {
 

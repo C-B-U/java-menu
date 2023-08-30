@@ -1,5 +1,6 @@
 package menu;
 
+import menu.model.CoachNames;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
