@@ -1,9 +1,6 @@
 package menu;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ForbiddenMenu {
@@ -12,6 +9,13 @@ public class ForbiddenMenu {
 
     public void add(String name, String forbiddenMenu) {
        forbiddenMenus.put(name, Arrays.stream(forbiddenMenu.split(",")).collect(Collectors.toList()));
+    }
+
+    public boolean isNotContainForbiddenMenu(String name, String menu){
+        return forbiddenMenus
+                .getOrDefault(name, Collections.emptyList())
+                .stream()
+                .noneMatch(forbiddenMenu -> forbiddenMenu.equals(menu));
     }
 
     public Map<String, List<String>> getForbiddenMenus() {
