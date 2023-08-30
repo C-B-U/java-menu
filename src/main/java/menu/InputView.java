@@ -14,6 +14,7 @@ public class InputView {
         return attemptInput(() -> {
             outputView.printCoachNameMessage();
             String coachName = Console.readLine();
+            outputView.printEnter();
             inputValidator.validateCommaContain(coachName);
             return new CoachNames(coachName);
         });
@@ -25,6 +26,7 @@ public class InputView {
             for (String coachName: coachNames.getCoachNames()){
                 outputView.printCoachesForbiddenMenu(coachName);
                 String inputMenu = Console.readLine();
+                outputView.printEnter();
                 inputValidator.validateForbiddenMenuCount(inputMenu);
                 forbiddenMenu.add(coachName, inputMenu);
             }
