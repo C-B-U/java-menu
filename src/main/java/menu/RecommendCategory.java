@@ -7,6 +7,7 @@ import java.util.List;
 
 public class RecommendCategory {
 
+    private static final String CATEGORY = "카테고리";
     private static final int CATEGORY_COUNT = 5;
     private static final int MAX_DUPLICATE_COUNT = 2;
     private final List<String> categories = new ArrayList<>();
@@ -33,6 +34,18 @@ public class RecommendCategory {
 
     public int getCategoryCount(){
         return categories.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(OutputElement.FIRST_ELEMENT).append(CATEGORY);
+        for (String category : categories){
+            stringBuilder.append(OutputElement.MIDDLE_ELEMENT)
+                    .append(category);
+        }
+        stringBuilder.append(OutputElement.LAST_ELEMENT);
+        return stringBuilder.toString();
     }
 }
 

@@ -23,10 +23,10 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printRecommendResult(RecommendMenu recommendMenu) {
+    public void printRecommendResult(RecommendMenu recommendMenu, RecommendCategory recommendCategory) {
         System.out.println(ProcessMessage.OUTPUT_RESULT_MENU);
         System.out.println(Days.outputDays());
-        System.out.println(Categories.outputCategories());
+        System.out.println(recommendCategory);
         System.out.println(recommendMenu);
         System.out.println(ProcessMessage.OUTPUT_FINISH_MENU);
     }

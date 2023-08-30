@@ -20,6 +20,6 @@ public class MenuController {
         ForbiddenMenu forbiddenMenu = inputView.inputForbiddenMenu(coachNames);
         recommendCategory.createRecommendCategory();
         recommendMenu.createRecommendMenu(coachNames, forbiddenMenu, recommendCategory);
-        outputView.printRecommendResult(recommendMenu);
+        outputView.printRecommendResult(recommendMenu, recommendCategory);
     }
 }
