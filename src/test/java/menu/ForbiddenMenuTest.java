@@ -24,4 +24,10 @@ class ForbiddenMenuTest {
         assertThat(forbiddenMenus)
                 .containsEntry("토미", List.of("우동", "스시"));
     }
+
+    @Test
+    @DisplayName("못 먹는 음식이 없을 경우 true를 반환한다.")
+    void isNotContainForbiddenMenu(){
+        assertThat(forbiddenMenu.isNotContainForbiddenMenu("토미", "비빔밥")).isTrue();
+    }
 }
