@@ -13,7 +13,7 @@ public class ForbiddenMenu {
 
     public boolean isNotContainForbiddenMenu(String name, String menu){
         return forbiddenMenus
-                .getOrDefault(name, Collections.emptyList())
+                .getOrDefault(name, new ArrayList<>())
                 .stream()
                 .noneMatch(forbiddenMenu -> forbiddenMenu.equals(menu));
     }
