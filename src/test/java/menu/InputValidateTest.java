@@ -17,4 +17,12 @@ class InputValidateTest {
                 .hasMessageContaining(errorMessage);
 
     }
+
+    @Test
+    @DisplayName("못 먹는 메뉴의 개수가 최소 0개, 최대 2개가 아니면 에러가 발생한다.")
+    void validateForbiddenMenuCount(){
+        assertThatThrownBy(() -> inputValidator.validateForbiddenMenuCount("우동,스시,비빔밥"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(errorMessage);
+    }
 }
