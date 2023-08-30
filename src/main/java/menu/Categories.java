@@ -10,6 +10,7 @@ public enum Categories {
     ASIAN(4, "아시안"),
     WESTERN(5, "양식");
 
+    private static final String CATEGORY = "카테고리";
     private final int number;
     private final String type;
 
@@ -30,6 +31,16 @@ public enum Categories {
         return categories -> categories.number == number;
     }
 
+    public static String outputCategories(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(OutputElement.FIRST_ELEMENT).append(CATEGORY);
+        for (Categories categories : Categories.values()){
+            stringBuilder.append(OutputElement.MIDDLE_ELEMENT)
+                    .append(categories.type);
+        }
+        stringBuilder.append(OutputElement.LAST_ELEMENT);
+        return stringBuilder.toString();
+    }
 
 
 }
