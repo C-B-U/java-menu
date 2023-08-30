@@ -20,8 +20,8 @@ public class InputView {
     }
 
     public ForbiddenMenu inputForbiddenMenu(CoachNames coachNames){
-        ForbiddenMenu forbiddenMenu = new ForbiddenMenu();
         return attemptInput(() -> {
+            ForbiddenMenu forbiddenMenu = new ForbiddenMenu();
             for (String coachName: coachNames.getCoachNames()){
                 outputView.printCoachesForbiddenMenu(coachName);
                 String inputMenu = Console.readLine();
