@@ -19,6 +19,19 @@ public class InputView {
         });
     }
 
+    public ForbiddenMenu inputForbiddenMenu(CoachNames coachNames){
+        ForbiddenMenu forbiddenMenu = new ForbiddenMenu();
+        return attemptInput(() -> {
+            for (String coachName: coachNames.getCoachNames()){
+                outputView.printCoachesForbiddenMenu(coachName);
+                String inputMenu = Console.readLine();
+                inputValidator.validateForbiddenMenuCount(inputMenu);
+                forbiddenMenu.add(coachName, inputMenu);
+            }
+            return forbiddenMenu;
+        });
+    }
+
     private <T> T attemptInput(Supplier<T> supplier){
         try{
             return supplier.get();
