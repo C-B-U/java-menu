@@ -13,13 +13,12 @@ public class RecommendCategory {
     private static final int CATEGORY_COUNT = 5;
     private static final int MAX_DUPLICATE_COUNT = 2;
     private final List<String> categories = new ArrayList<>();
+    private int curCategory = 0;
 
     public void createRecommendCategory() {
-        while (categories.size() < CATEGORY_COUNT){
-            String newCategory = Categories.getType(Randoms.pickNumberInRange(1, 5));
-            if (canAddCategory(newCategory)){
-                categories.add(newCategory);
-            }
+        String newCategory = Categories.getType(Randoms.pickNumberInRange(1, 5));
+        if (canAddCategory(newCategory)){
+            categories.add(newCategory);
         }
     }
 
@@ -29,6 +28,19 @@ public class RecommendCategory {
                 .count();
         return count < MAX_DUPLICATE_COUNT;
     }
+
+    public boolean isRecommending(){
+        return categories.size() < CATEGORY_COUNT;
+    }
+
+    public void nextCategory(){
+        curCategory++;
+    }
+
+    public int getCurCategory() {
+        return curCategory;
+    }
+
 
     public List<String> getCategories() {
         return categories;
