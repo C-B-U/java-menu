@@ -3,9 +3,6 @@ package menu.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.constant.Menus;
 import menu.constant.OutputElement;
-import menu.model.CoachNames;
-import menu.model.ForbiddenMenu;
-import menu.model.RecommendCategory;
 
 import java.util.*;
 

@@ -30,4 +30,8 @@ public enum Categories {
     private static Predicate<Categories> isSameNumber(int number) {
         return categories -> categories.number == number;
     }
+
+    public String findType(){
+        return type;
+    }
 }
