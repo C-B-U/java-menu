@@ -10,23 +10,23 @@ public class RecommendMenu {
 
     private final Map<String, List<String>> menus = new HashMap<>();
 
-    public void createRecommendMenu(CoachNames coachNames, ForbiddenMenu forbiddenMenu, RecommendCategory recommendCategory){
+    public void createRecommendMenu(CoachNames coachNames, ForbiddenMenu forbiddenMenu
+            , RecommendCategory recommendCategory){
         for (String coach : coachNames.getCoachNames()){
             addMenu(forbiddenMenu, recommendCategory, coach);
         }
+        recommendCategory.nextCategory();
     }
 
     private void addMenu(ForbiddenMenu forbiddenMenu, RecommendCategory recommendCategory, String coach) {
         List<String> categories = recommendCategory.getCategories();
-        int next = 0;
         while (isRecommendsMenu(coach, recommendCategory)){
-            List<String> menu = Menus.getFoods(categories.get(next));
+            List<String> menu = Menus.getFoods(categories.get(recommendCategory.getCurCategory()));
             String menuName = Randoms.shuffle(menu).get(0);
             if (canAddMenu(coach, menuName, forbiddenMenu)){
                 List<String> coachMenus = menus.getOrDefault(coach, new ArrayList<>());
                 coachMenus.add(menuName);
                 menus.put(coach, coachMenus);
-                next++;
             }
         }
     }
