@@ -32,12 +32,12 @@ public class RecommendMenu {
     }
 
     private boolean isRecommendsMenu(String coach, RecommendCategory recommendCategory) {
-        List<String> coachMenus = menus.getOrDefault(coach, new ArrayList<>());
+        List<String> coachMenus = menus.getOrDefault(coach, Collections.emptyList());
         return coachMenus.size() < recommendCategory.getCategoryCount();
     }
 
     private boolean canAddMenu(String coach, String menuName, ForbiddenMenu forbiddenMenu) {
-        boolean isNotDuplicate = menus.getOrDefault(coach, new ArrayList<>())
+        boolean isNotDuplicate = menus.getOrDefault(coach, Collections.emptyList())
                 .stream()
                 .noneMatch(menu -> menu.equals(menuName));
         boolean isNotContainForbiddenMenu = forbiddenMenu.isNotContainForbiddenMenu(coach, menuName);
