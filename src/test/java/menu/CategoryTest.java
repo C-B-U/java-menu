@@ -44,4 +44,11 @@ class CategoryTest {
                 Categories.ASIAN.findType(),
                 Categories.WESTERN.findType());
     }
+
+    @Test
+    @DisplayName("숫자에 맞는 카테고리 타입이 반환되는지 확인한다.")
+    void checkCorrectMappingCategoryType(){
+        String type = Categories.getType(1);
+        assertThat(type).isEqualTo("일식");
+    }
 }
