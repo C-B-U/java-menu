@@ -25,3 +25,6 @@
 
 - ComponentFactory
   - menuController()
+
+- OutputView
+  - printStart()
