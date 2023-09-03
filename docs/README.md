@@ -1,8 +1,8 @@
 ## 기능 목록
 - 기능 목록
-- [ ]  시작 메시지 출력
+- [x]  시작 메시지 출력
 - [ ]  코치 이름
-    - [ ]  코치 이름 입력 요청 메시지 출력
+    - [x]  코치 이름 입력 요청 메시지 출력
     - [ ]  코치 이름 입력
     - [ ]  콤마로 구분해 입력했는지 검증
     - [ ]  코치 이름 2글자 ~ 4글자인지 검증
@@ -21,10 +21,14 @@
 
 ## 구현 클래스 목록
 - MenuController
-  - startRecommend()
+  - start()
 
 - ComponentFactory
   - menuController()
 
 - OutputView
   - printStart()
+  - printCoachNameRequest()
+
+## 열거형 목록
+- ProgressMessage

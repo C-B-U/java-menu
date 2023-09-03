@@ -9,7 +9,12 @@ public class MenuController {
         this.outputView = outputView;
     }
 
-    public void startRecommend() {
+    public void start() {
+        outputView.printStart();
+        createCoach();
+    }
 
+    private void createCoach() {
+        outputView.printCoachNameRequest();
     }
 }
