@@ -18,3 +18,10 @@
     - [ ]  랜덤으로 셔플
     - [ ]  메뉴 추천 메시지 출력
 - [ ]  추천 완료 메시지 출력
+
+## 구현 클래스 목록
+- MenuController
+  - startRecommend()
+
+- ComponentFactory
+  - menuController()
