@@ -46,6 +46,12 @@
 - InputView
   - readCoach()
 
+- MenuService
+  - saveCoachList()
+
+- MenuRepository
+  - saveCoachList()
+  - findCoachList()
 
 ## 열거형 목록
 - ProgressMessage
