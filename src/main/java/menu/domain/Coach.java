@@ -22,4 +22,9 @@ public class Coach {
     private boolean invalidLength(final int length) {
         return length < MIN_NAME_LENGTH || length > MAX_NAME_LENGTH;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

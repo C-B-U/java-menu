@@ -1,6 +1,6 @@
 package menu.repository;
 
-import menu.domain.CoachList;
+import menu.collection.CoachList;
 
 public class MenuRepository {
     private CoachList coachList;

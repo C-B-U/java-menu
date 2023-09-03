@@ -1,6 +1,6 @@
 package menu.service;
 
-import menu.domain.CoachList;
+import menu.collection.CoachList;
 import menu.repository.MenuRepository;
 
 public class MenuService {

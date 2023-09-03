@@ -14,4 +14,10 @@ public class InputView {
         inputValidator.validateSplitter(input);
         return input;
     }
+
+    public String readCoachMenu() {
+        final String input = Console.readLine();
+        inputValidator.validateCoachMenu(input);
+        return input;
+    }
 }
