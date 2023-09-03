@@ -36,22 +36,30 @@
 - Coach
 
 - CoachList
+  - getNextCoach()
+  - getCoachNum()
 
 - InputManager
   - readCoach()
+  - readCoachMenu()
 
 - InputValidator
-  - validateCoach()
+  - validateSplitter()
+  - validateCoachMenu()
 
 - InputView
   - readCoach()
+  - readCoachMenu()
 
 - MenuService
   - saveCoachList()
+  - saveCoachMenuMap()
 
 - MenuRepository
   - saveCoachList()
   - findCoachList()
+  - saveCoachMenuMap()
+  - findCoachMenuMap()
 
 - CoachMenu
 
@@ -60,6 +68,10 @@
 - CoachMenuMap
 
 - MenuMap
+  - getInstance()
+
+- MenuGenerator
+  - generate()
 
 ## 열거형 목록
 - ProgressMessage
