@@ -10,7 +10,7 @@ public class MenuService {
         this.menuRepository = menuRepository;
     }
 
-    public void saveCoachList(final CoachList coachList) {
-        menuRepository.saveCoachList(coachList);
+    public CoachList saveCoachList(final CoachList coachList) {
+        return menuRepository.saveCoachList(coachList);
     }
 }
