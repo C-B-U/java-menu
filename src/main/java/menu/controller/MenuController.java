@@ -25,7 +25,12 @@ public class MenuController {
     public void start() {
         outputView.printStart();
         final CoachList coachList = createCoachList();
+        createCoachMenuMap(coachList);
+    }
+
+    private void createCoachMenuMap(final CoachList coachList) {
         final CoachMenuMap coachMenuMap = coachMenuInput(coachList);
+        menuService.saveCoachMenuMap(coachMenuMap);
     }
 
     private CoachMenuMap coachMenuInput(final CoachList coachList) {

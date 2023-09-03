@@ -7,6 +7,7 @@ import menu.io.InputView;
 import menu.io.OutputView;
 import menu.repository.MenuRepository;
 import menu.service.MenuService;
+import menu.utils.MenuGenerator;
 
 public class ComponentFactory {
 
@@ -15,7 +16,11 @@ public class ComponentFactory {
     }
 
     private MenuService menuService() {
-        return new MenuService(menuRepository());
+        return new MenuService(menuRepository(), menuGenerator());
+    }
+
+    private MenuGenerator menuGenerator() {
+        return new MenuGenerator();
     }
 
     private MenuRepository menuRepository() {

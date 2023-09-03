@@ -2,9 +2,7 @@ package menu.collection;
 
 import menu.constant.Category;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MenuMap {
     private final Map<Category, List<String>> menuMap;
@@ -20,6 +18,16 @@ public class MenuMap {
             instance = new MenuMap();
         }
         return instance;
+    }
+
+    public boolean contains(final String name) {
+        return this.menuMap.values().stream()
+                .flatMap(Collection::stream)
+                .anyMatch(name::equals);
+    }
+
+    public List<String> getByCategory(final Category category) {
+        return new ArrayList<>(menuMap.get(category));
     }
 
     private void initializeMap() {
