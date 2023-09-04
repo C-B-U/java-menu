@@ -1,8 +1,10 @@
-package menu.collection;
+package menu.domain;
 
 import menu.constant.Category;
+import menu.constant.ErrorMessage;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MenuMap {
     private final Map<Category, List<String>> menuMap;
@@ -26,8 +28,28 @@ public class MenuMap {
                 .anyMatch(name::equals);
     }
 
-    public List<String> getByCategory(final Category category) {
-        return new ArrayList<>(menuMap.get(category));
+    private Category getCategoryByMenu(final Menu menu) {
+        return menuMap.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(menu.toString()))
+                .findAny()
+                .map(Map.Entry::getKey)
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.CANNOT_FIND_CATEGORY.toString()));
+    }
+
+    public Map<Category, List<Menu>> getExceptHateMenus(final List<Menu> hateMenus) {
+        final List<String> hateMenuString = getHateMenuString(hateMenus);
+
+        return this.menuMap.values().stream()
+                .flatMap(Collection::stream)
+                .filter(menu -> !hateMenuString.contains(menu))
+                .map(Menu::new)
+                .collect(Collectors.groupingBy(this::getCategoryByMenu));
+    }
+
+    private List<String> getHateMenuString(final List<Menu> hateMenus) {
+        return hateMenus.stream()
+                .map(Menu::toString)
+                .collect(Collectors.toList());
     }
 
     private void initializeMap() {

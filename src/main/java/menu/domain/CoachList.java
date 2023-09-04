@@ -1,7 +1,6 @@
-package menu.collection;
+package menu.domain;
 
 import menu.constant.ErrorMessage;
-import menu.domain.Coach;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,12 +8,10 @@ import java.util.stream.Collectors;
 public class CoachList {
     private static final int MIN_COACH_NUM = 2;
     private final List<Coach> coaches;
-    private Integer index;
 
     public CoachList(final List<String> coaches) {
         validateSize(coaches);
         this.coaches = coaches.stream().map(Coach::new).collect(Collectors.toList());
-        this.index = 0;
     }
 
     private void validateSize(final List<String> coaches) {
@@ -23,19 +20,12 @@ public class CoachList {
         }
     }
 
-    public Coach getNextCoach() {
-        final Coach coach = this.coaches.get(index++);
-        checkIndex();
-        return coach;
+    public List<Coach> getAllCoaches() {
+        return this.coaches;
     }
 
-    private void checkIndex() {
-        if (index >= getCoachNum()) {
-            index = 0;
-        }
-    }
-
-    public int getCoachNum() {
-        return coaches.size();
+    @Override
+    public String toString() {
+        return coaches.stream().map(Coach::toString).collect(Collectors.joining("\n"));
     }
 }

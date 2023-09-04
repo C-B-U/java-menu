@@ -1,22 +1,24 @@
-package menu.collection;
-
-import menu.domain.CoachMenu;
+package menu.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CoachMenuList {
+public class HateMenuList {
     private static final int MIN_SIZE = 2;
-    private final List<CoachMenu> coachMenus;
+    private final List<Menu> menus;
 
-    public CoachMenuList(final List<String> menus) {
+    public HateMenuList(final List<String> menus) {
         validateSize(menus);
-        this.coachMenus = menus.stream().map(CoachMenu::new).collect(Collectors.toList());
+        this.menus = menus.stream().map(Menu::new).collect(Collectors.toList());
     }
 
     private void validateSize(final List<String> menus) {
         if (menus.size() > MIN_SIZE) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public List<Menu> getMenus() {
+        return this.menus;
     }
 }
