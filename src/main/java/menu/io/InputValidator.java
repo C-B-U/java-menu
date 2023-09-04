@@ -3,7 +3,7 @@ package menu.io;
 import menu.constant.ErrorMessage;
 
 public class InputValidator {
-    private static final String SPLITTER = ",";
+    private static final String DELIMETER = ",";
 
     public void validateCoachMenu(final String input) {
         if (input.isEmpty()) {
@@ -14,11 +14,11 @@ public class InputValidator {
 
     public void validateSplitter(final String input) {
         if (invalidSplitterUsage(input)) {
-            throw new IllegalArgumentException(ErrorMessage.COACH_NAME_INPUT_ERROR.toString());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DELIMITER_USAGE.toString());
         }
     }
 
     private boolean invalidSplitterUsage(final String input) {
-        return !input.contains(SPLITTER) || input.startsWith(SPLITTER) || input.endsWith(SPLITTER);
+        return input.startsWith(DELIMETER) || input.endsWith(DELIMETER);
     }
 }
