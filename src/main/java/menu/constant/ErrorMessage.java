@@ -5,7 +5,9 @@ public enum ErrorMessage {
     INVALID_COACH_NUM_ERROR("코치 수가 잘못되었습니다."),
     INVALID_COACH_NAME_LENGTH("코치의 이름 길이가 잘못되었습니다."),
     INVALID_MENU_NAME("잘못된 메뉴명입니다."),
-    NO_MATCHING_INDEX("인덱스에 해당하는 값이 없습니다.");
+    NO_MATCHING_INDEX("인덱스에 해당하는 값이 없습니다."),
+    CANNOT_FIND_CATEGORY("카테고리를 찾을 수 없습니다."),
+    INVALID_INDEX("잘못된 인덱스 번호입니다.");
 
     private static final String PREFIX = "[ERROR] ";
     private final String message;
