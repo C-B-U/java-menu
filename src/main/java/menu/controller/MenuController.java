@@ -1,17 +1,12 @@
 package menu.controller;
 
-import menu.collection.CoachList;
-import menu.collection.CoachMenuMap;
+import menu.domain.CoachList;
+import menu.domain.RecommendResult;
 import menu.io.InputManager;
 import menu.io.OutputView;
 import menu.service.MenuService;
 
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class MenuController {
-    private static final int START_INDEX = 0;
     private final OutputView outputView;
     private final InputManager inputManager;
     private final MenuService menuService;
@@ -26,18 +21,19 @@ public class MenuController {
         outputView.printStart();
         final CoachList coachList = createCoachList();
         createCoachMenuMap(coachList);
+        recommendMenu();
+    }
+
+    private void recommendMenu() {
+        final RecommendResult recommendResult = menuService.recommendMenu();
+        outputView.printRecommendResult(recommendResult);
     }
 
     private void createCoachMenuMap(final CoachList coachList) {
-        final CoachMenuMap coachMenuMap = coachMenuInput(coachList);
-        menuService.saveCoachMenuMap(coachMenuMap);
-    }
-
-    private CoachMenuMap coachMenuInput(final CoachList coachList) {
-        return new CoachMenuMap(IntStream.range(START_INDEX, coachList.getCoachNum())
-                .mapToObj(i -> coachList.getNextCoach())
-                .peek(outputView::printCoachMenuRequest)
-                .collect(Collectors.toMap(Function.identity(), coach -> inputManager.readCoachMenu())));
+        coachList.getAllCoaches().forEach(coach -> {
+            outputView.printCoachMenuRequest(coach);
+            menuService.addHateMenus(coach, inputManager.readCoachMenu());
+        });
     }
 
     private CoachList createCoachList() {

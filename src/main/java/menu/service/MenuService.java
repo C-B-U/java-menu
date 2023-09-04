@@ -1,7 +1,7 @@
 package menu.service;
 
-import menu.collection.CoachList;
-import menu.collection.CoachMenuMap;
+import menu.domain.*;
+import menu.domain.RecommendResult;
 import menu.repository.MenuRepository;
 import menu.utils.MenuGenerator;
 
@@ -14,11 +14,17 @@ public class MenuService {
         this.menuGenerator = menuGenerator;
     }
 
+    public RecommendResult recommendMenu() {
+        final CoachList coachList = menuRepository.findCoachList();
+        final DayCategoryList dayCategoryList = menuGenerator.generate(new DayCategoryList(), coachList);
+        return new RecommendResult(coachList, dayCategoryList);
+    }
+
     public CoachList saveCoachList(final CoachList coachList) {
         return menuRepository.saveCoachList(coachList);
     }
 
-    public void saveCoachMenuMap(final CoachMenuMap coachMenuMap) {
-        menuRepository.saveCoachMenuMap(coachMenuMap);
+    public void addHateMenus(final Coach coach, final HateMenuList hateMenuList) {
+        coach.addMenus(hateMenuList);
     }
 }

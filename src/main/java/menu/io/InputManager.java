@@ -1,7 +1,7 @@
 package menu.io;
 
-import menu.collection.CoachList;
-import menu.collection.CoachMenuList;
+import menu.domain.CoachList;
+import menu.domain.HateMenuList;
 
 import java.util.Arrays;
 import java.util.function.Supplier;
@@ -18,8 +18,8 @@ public class InputManager {
         return read(() -> new CoachList(Arrays.asList(inputView.readCoach().split(SPLITTER))));
     }
 
-    public CoachMenuList readCoachMenu() {
-        return read(() -> new CoachMenuList(Arrays.asList(inputView.readCoachMenu().split(SPLITTER))));
+    public HateMenuList readCoachMenu() {
+        return read(() -> new HateMenuList(Arrays.asList(inputView.readCoachMenu().split(SPLITTER))));
     }
 
     private <T> T read(final Supplier<T> supplier) {
