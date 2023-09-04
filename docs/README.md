@@ -14,13 +14,13 @@
     - [x]  콤마로 구분해 입력했는지 검증
     - [x]  개수가 0 ~ 2개 인지 검증
     - [x]  잘못된 입력시 재입력
-- [ ]  메뉴 추천
-    - [ ]  이전에 먹은 음식은 못먹도록 필터링
-    - [ ]  같은 카테고리 2번만 먹을 수 있도록 필터링
-    - [ ]  못 먹는 음식은 추천하지 않도록 필터링
-    - [ ]  랜덤으로 셔플
-    - [ ]  메뉴 추천 메시지 출력
-- [ ]  추천 완료 메시지 출력
+- [x]  메뉴 추천
+    - [x]  이전에 먹은 음식은 못먹도록 필터링
+    - [x]  같은 카테고리 2번만 먹을 수 있도록 필터링
+    - [x]  못 먹는 음식은 추천하지 않도록 필터링
+    - [x]  랜덤으로 셔플
+    - [x]  메뉴 추천 메시지 출력
+    - [x]  추천 완료 메시지 출력
 
 ## 구현 클래스 목록
 - MenuController
@@ -32,8 +32,6 @@
 - OutputView
   - printStart()
   - printCoachNameRequest()
-
-- Coach
 
 - CoachList
   - getNextCoach()
@@ -52,8 +50,9 @@
   - readCoachMenu()
 
 - MenuService
+  - recommendMenu()
   - saveCoachList()
-  - saveCoachMenuMap()
+  - addHateMenu()
 
 - MenuRepository
   - saveCoachList()
@@ -61,19 +60,47 @@
   - saveCoachMenuMap()
   - findCoachMenuMap()
 
-- CoachMenu
-
-- CoachMenuList
-
-- CoachMenuMap
-
 - MenuMap
   - getInstance()
 
 - MenuGenerator
   - generate()
 
+- AvailMenuList
+  - getMenuByCategory()
+
+- Coach
+  - getName()
+  - addMenus()
+  - getAvailMenuByCategory()
+  - noSameRecommendMenu()
+  - addRecommendMenu()
+
+- CoachList
+  - getAllCoaches()
+
+- DayCategory
+  - getCategory()
+
+- DayCategoryList
+  - isMaxCount()
+  - addCategory()
+
+- HateMenuList
+  - getMenus()
+
+- Menu
+
+- MenuMap
+  - getInstance()
+  - contains()
+  - getExceptHateMenus()
+
+- RecommendResult
+
 ## 열거형 목록
 - ProgressMessage
 - ErrorMessage
 - Category
+- Day
+- ResultTag
