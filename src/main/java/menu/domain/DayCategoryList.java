@@ -1,7 +1,6 @@
 package menu.domain;
 
 import menu.constant.Category;
-import menu.constant.Day;
 import menu.constant.ResultTag;
 
 import java.util.*;
@@ -20,7 +19,7 @@ public class DayCategoryList {
     }
 
     public void addCategory(final Category category) {
-        final DayCategory dayCategory = new DayCategory(Day.getByOrder(dayCategoryList.size()), category);
+        final DayCategory dayCategory = new DayCategory(category);
         dayCategoryList.add(dayCategory);
     }
 

@@ -16,7 +16,7 @@ public class MenuService {
 
     public RecommendResult recommendMenu() {
         final CoachList coachList = menuRepository.findCoachList();
-        final DayCategoryList dayCategoryList = menuGenerator.generate(new DayCategoryList(), coachList);
+        final DayCategoryList dayCategoryList = menuGenerator.generate(coachList);
         return new RecommendResult(coachList, dayCategoryList);
     }
 
@@ -25,6 +25,6 @@ public class MenuService {
     }
 
     public void addHateMenus(final Coach coach, final HateMenuList hateMenuList) {
-        coach.addMenus(hateMenuList);
+        coach.addHateMenus(hateMenuList);
     }
 }

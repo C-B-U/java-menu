@@ -24,8 +24,7 @@ public final class Coach {
     }
 
     private void validateName(final String name) {
-        final int length = name.length();
-        if (invalidLength(length)) {
+        if (invalidLength(name.length())) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_COACH_NAME_LENGTH.toString());
         }
     }
@@ -47,7 +46,7 @@ public final class Coach {
         return this.name;
     }
 
-    public void addMenus(final HateMenuList hateMenuList) {
+    public void addHateMenus(final HateMenuList hateMenuList) {
         this.hateMenuList = hateMenuList;
         this.availMenuList = new AvailMenuList(getAvailMenu());
     }

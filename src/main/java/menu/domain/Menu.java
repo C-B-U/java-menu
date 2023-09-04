@@ -6,10 +6,14 @@ public final class Menu {
     private final String name;
 
     public Menu(final String name) {
+        validateName(name);
+        this.name = name;
+    }
+
+    private void validateName(final String name) {
         if (!name.isEmpty() && notContainsName(name)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MENU_NAME.toString());
         }
-        this.name = name;
     }
 
     private boolean notContainsName(final String name) {

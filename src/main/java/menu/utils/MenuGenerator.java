@@ -13,7 +13,8 @@ public class MenuGenerator {
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 5;
 
-    public DayCategoryList generate(final DayCategoryList dayCategoryList, final CoachList coachList) {
+    public DayCategoryList generate(final CoachList coachList) {
+        final DayCategoryList dayCategoryList = new DayCategoryList();
         IntStream.range(MIN_INDEX, MAX_INDEX).forEach(i -> addOneDayRecommend(dayCategoryList, coachList));
         return dayCategoryList;
     }
