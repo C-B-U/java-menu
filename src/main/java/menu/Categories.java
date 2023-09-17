@@ -17,9 +17,10 @@ public enum Categories {
         this.type = type;
     }
 
-    public static Categories findCategory(int number) {
+    public static String findCategory(int number) {
         return Arrays.stream(values())
                 .filter(categories -> categories.number == number)
+                .map(categories -> categories.type)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.CATEGORY_NUMBER_ERROR.getMessage()));
     }
