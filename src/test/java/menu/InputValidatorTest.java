@@ -15,4 +15,12 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(error);
     }
+
+    @Test
+    @DisplayName("코치들의 못 먹는 음식이 최대 2가지가 아니라면 에러가 발생한다.")
+    void validateForbiddenMenuNumber(){
+        assertThatThrownBy(() -> inputValidator.validateForbiddenMenuNumber("우동,스시,비빔밥"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(error);
+    }
 }
