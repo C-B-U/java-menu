@@ -16,4 +16,8 @@ public class ForbiddenMenu {
                 .map(String::trim)
                 .collect(Collectors.toList()));
     }
+
+    public boolean isNotContainRecommendMenuInForbidden(String menu){
+        return !forbiddenMenus.contains(menu);
+    }
 }
