@@ -23,6 +23,10 @@ public class Coach {
         forbiddenMenu.addForbiddenMenu(menu);
     }
 
+    public boolean isNotContainRecommendMenuInForbidden(String menu){
+        return forbiddenMenu.isNotContainRecommendMenuInForbidden(menu);
+    }
+
     public String getName() {
         return name;
     }
