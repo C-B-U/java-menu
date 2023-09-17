@@ -13,6 +13,7 @@ public class InputView {
         return read(() -> {
             outputView.printProgressCoachNameMessage();
             String names = scanner.next();
+            outputView.printEnter();
             inputValidator.validateContainComma(names);
             return new Coaches(names);
         });
@@ -22,6 +23,7 @@ public class InputView {
         return read(() -> {
             outputView.printProgressCoachForbiddenMessage(coach.getName());
             String menus = scanner.next();
+            outputView.printEnter();
             inputValidator.validateForbiddenMenuNumber(menus);
             return menus;
         });

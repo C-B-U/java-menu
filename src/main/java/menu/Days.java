@@ -14,7 +14,7 @@ public enum Days {
         this.day = day;
     }
 
-    public static String divisionDays(){
+    public static String showDivisionDays(){
         StringBuilder sb = new StringBuilder();
         sb.append(ScreenElement.FIRST_ELEMENT).append(TAG);
         for(Days days : Days.values()){
