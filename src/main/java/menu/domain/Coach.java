@@ -6,7 +6,7 @@ public class Coach {
 
     private static final int MIN_NAME_LENGTH = 2;
     private static final int MAX_NAME_LENGTH = 4;
-    public final ForbiddenMenu forbiddenMenu;
+    private final ForbiddenMenu forbiddenMenu;
     private final String name;
 
     public Coach(String name) {

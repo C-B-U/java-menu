@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CoachMenus {
     private final RecommendMenu recommendMenu;
@@ -38,15 +39,13 @@ public class CoachMenus {
     }
 
     public String showCoachMenus() {
-        StringBuilder sb = new StringBuilder();
-        for (Coach coach : coachMenus.keySet()) {
-            sb.append(ScreenElement.FIRST_ELEMENT).append(coach.getName());
-            for (String menu : coachMenus.get(coach)) {
-                sb.append(ScreenElement.MIDDLE_DIVISION).append(menu);
-            }
-            sb.append(ScreenElement.LAST_ELEMENT).append("\n");
-        }
-        sb.append("\n");
-        return sb.toString();
+        return coachMenus.keySet().stream()
+                .map(coach -> {
+                    String menus = coachMenus.get(coach).stream()
+                            .collect(Collectors.joining(ScreenElement.MIDDLE_DIVISION.getValue()));
+                    return ScreenElement.FIRST_ELEMENT + coach.getName()
+                            + ScreenElement.MIDDLE_DIVISION + menus + ScreenElement.LAST_ELEMENT;
+                })
+                .collect(Collectors.joining("\n")) + "\n";
     }
 }

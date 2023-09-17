@@ -1,6 +1,5 @@
 package menu.controller;
 
-import menu.domain.Coach;
 import menu.domain.Coaches;
 import menu.service.MenuService;
 import menu.view.InputView;
@@ -22,15 +21,16 @@ public class MenuController {
         outputView.printStartMenuRecommend();
         Coaches coaches = inputView.inputCoachName();
         addCoachesForbiddenMenu(coaches);
+
         recommendMenu(coaches);
         outputView.printResultMenu(menuService.showMenuResult());
     }
 
     private void addCoachesForbiddenMenu(Coaches coaches) {
-        for (Coach coach : coaches.getCoaches()) {
+        coaches.getCoaches().forEach(coach -> {
             String menu = inputView.inputForbiddenMenus(coach);
             coach.addForbiddenMenu(menu);
-        }
+        });
     }
 
     private void recommendMenu(Coaches coaches) {
