@@ -16,12 +16,20 @@ public class MenuController {
         outputView.printStartMenuRecommend();
         Coaches coaches = inputView.inputCoachName();
         addCoachesForbiddenMenu(coaches);
+        recommendMenu(coaches);
+        outputView.printResultMenu(menuService.showMenuResult());
     }
 
     private void addCoachesForbiddenMenu(Coaches coaches) {
         for (Coach coach : coaches.getCoaches()){
             String menu = inputView.inputForbiddenMenus(coach);
             coach.addForbiddenMenu(menu);
+        }
+    }
+
+    private void recommendMenu(Coaches coaches){
+        while (menuService.isRecommending()){
+            menuService.addRecommendMenu(coaches);
         }
     }
 }
