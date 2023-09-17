@@ -2,6 +2,10 @@ package menu;
 
 public class OutputView {
 
+    public void printStartMenuRecommend(){
+        System.out.println(ProgressMessage.START_MENU_RECOMMEND);
+    }
+
     public void printErrorMessage(String error){
         System.out.println(error);
     }
