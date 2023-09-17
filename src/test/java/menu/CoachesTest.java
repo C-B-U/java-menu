@@ -1,8 +1,10 @@
 package menu;
 
+import menu.domain.Coaches;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CoachesTest {
 
@@ -10,7 +12,7 @@ public class CoachesTest {
 
     @Test
     @DisplayName("코치의 수가 2~5명 사이가 아니라면 에러가 발생한다.")
-    void validateCoachNumbers(){
+    void validateCoachNumbers() {
         assertThatThrownBy(() -> new Coaches("토미"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(error);

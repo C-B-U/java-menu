@@ -1,4 +1,4 @@
-package menu;
+package menu.constants;
 
 public enum ScreenElement {
     FIRST_ELEMENT("[ "),

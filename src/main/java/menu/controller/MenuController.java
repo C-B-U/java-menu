@@ -1,4 +1,10 @@
-package menu;
+package menu.controller;
+
+import menu.domain.Coach;
+import menu.domain.Coaches;
+import menu.service.MenuService;
+import menu.view.InputView;
+import menu.view.OutputView;
 
 public class MenuController {
 
@@ -12,7 +18,7 @@ public class MenuController {
         this.outputView = new OutputView();
     }
 
-    public void run(){
+    public void run() {
         outputView.printStartMenuRecommend();
         Coaches coaches = inputView.inputCoachName();
         addCoachesForbiddenMenu(coaches);
@@ -21,14 +27,14 @@ public class MenuController {
     }
 
     private void addCoachesForbiddenMenu(Coaches coaches) {
-        for (Coach coach : coaches.getCoaches()){
+        for (Coach coach : coaches.getCoaches()) {
             String menu = inputView.inputForbiddenMenus(coach);
             coach.addForbiddenMenu(menu);
         }
     }
 
-    private void recommendMenu(Coaches coaches){
-        while (menuService.isRecommending()){
+    private void recommendMenu(Coaches coaches) {
+        while (menuService.isRecommending()) {
             menuService.addRecommendMenu(coaches);
         }
     }

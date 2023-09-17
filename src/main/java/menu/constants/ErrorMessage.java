@@ -1,4 +1,4 @@
-package menu;
+package menu.constants;
 
 public enum ErrorMessage {
     DIVISION_COMMA_ERROR("(, 로 구분)되지 않았습니다."),

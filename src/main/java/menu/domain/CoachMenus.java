@@ -1,9 +1,12 @@
-package menu;
+package menu.domain;
+
+import menu.constants.ScreenElement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class CoachMenus {
     private final RecommendMenu recommendMenu;
     private final Map<Coach, List<String>> coachMenus;
@@ -13,11 +16,11 @@ public class CoachMenus {
         this.coachMenus = new HashMap<>();
     }
 
-    public void addCoachMenu(Coach coach, List<String> menus){
-        while (true){
+    public void addCoachMenu(Coach coach, List<String> menus) {
+        while (true) {
             String menu = recommendMenu.getMenu(menus);
             List<String> recommendMenus = coachMenus.getOrDefault(coach, new ArrayList<>());
-            if (canRecommendMenu(coach, menu)){
+            if (canRecommendMenu(coach, menu)) {
                 recommendMenus.add(menu);
                 coachMenus.put(coach, recommendMenus);
                 break;
@@ -25,20 +28,20 @@ public class CoachMenus {
         }
     }
 
-    private boolean canRecommendMenu(Coach coach, String menu){
+    private boolean canRecommendMenu(Coach coach, String menu) {
         return coach.isNotContainRecommendMenuInForbidden(menu) && isNotDuplicateMenu(coach, menu);
     }
 
-    private boolean isNotDuplicateMenu(Coach coach, String menu){
+    private boolean isNotDuplicateMenu(Coach coach, String menu) {
         List<String> menus = coachMenus.getOrDefault(coach, new ArrayList<>());
         return !menus.contains(menu);
     }
 
-    public String showCoachMenus(){
+    public String showCoachMenus() {
         StringBuilder sb = new StringBuilder();
-        for (Coach coach : coachMenus.keySet()){
+        for (Coach coach : coachMenus.keySet()) {
             sb.append(ScreenElement.FIRST_ELEMENT).append(coach.getName());
-            for (String menu : coachMenus.get(coach)){
+            for (String menu : coachMenus.get(coach)) {
                 sb.append(ScreenElement.MIDDLE_DIVISION).append(menu);
             }
             sb.append(ScreenElement.LAST_ELEMENT).append("\n");

@@ -1,11 +1,13 @@
-package menu;
+package menu.domain;
+
+import menu.constants.ErrorMessage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static menu.InputValidator.DIVISION;
+import static menu.view.InputValidator.DIVISION;
 
 public class Coaches {
 
@@ -20,7 +22,7 @@ public class Coaches {
     }
 
     private void validateCoachNumber(int number) {
-        if (number < MIN_COACH_NUMBER || number > MAX_COACH_NUMBER){
+        if (number < MIN_COACH_NUMBER || number > MAX_COACH_NUMBER) {
             throw new IllegalArgumentException(ErrorMessage.COACH_NUMBER_ERROR.getMessage());
         }
     }

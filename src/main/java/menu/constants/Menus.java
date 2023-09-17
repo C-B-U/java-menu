@@ -1,4 +1,4 @@
-package menu;
+package menu.constants;
 
 import java.util.Arrays;
 import java.util.List;

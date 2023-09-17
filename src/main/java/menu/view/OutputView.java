@@ -1,21 +1,24 @@
-package menu;
+package menu.view;
+
+import menu.constants.Days;
+import menu.constants.ProgressMessage;
 
 public class OutputView {
 
-    public void printStartMenuRecommend(){
+    public void printStartMenuRecommend() {
         System.out.println(ProgressMessage.START_MENU_RECOMMEND);
         printEnter();
     }
 
-    public void printErrorMessage(String error){
+    public void printErrorMessage(String error) {
         System.out.println(error);
     }
 
-    public void printProgressCoachNameMessage(){
+    public void printProgressCoachNameMessage() {
         System.out.println(ProgressMessage.INPUT_COACH_NAME);
     }
 
-    public void printProgressCoachForbiddenMessage(String name){
+    public void printProgressCoachForbiddenMessage(String name) {
         System.out.printf((ProgressMessage.INPUT_COACH_FORBIDDEN_MENU.getMessage()) + "%n", name);
     }
 
@@ -26,7 +29,7 @@ public class OutputView {
         System.out.println(ProgressMessage.FINISH_RECOMMEND);
     }
 
-    public void printEnter(){
+    public void printEnter() {
         System.out.println();
     }
 }

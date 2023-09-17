@@ -1,4 +1,4 @@
-package menu;
+package menu.constants;
 
 public enum Days {
     MONDAY("월요일"),
@@ -14,10 +14,10 @@ public enum Days {
         this.day = day;
     }
 
-    public static String showDivisionDays(){
+    public static String showDivisionDays() {
         StringBuilder sb = new StringBuilder();
         sb.append(ScreenElement.FIRST_ELEMENT).append(TAG);
-        for(Days days : Days.values()){
+        for (Days days : Days.values()) {
             sb.append(ScreenElement.MIDDLE_DIVISION).append(days.getDay());
         }
         sb.append(ScreenElement.LAST_ELEMENT);

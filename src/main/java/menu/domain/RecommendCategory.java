@@ -1,6 +1,8 @@
-package menu;
+package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.constants.Categories;
+import menu.constants.ScreenElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +16,9 @@ public class RecommendCategory {
     private final List<String> categories = new ArrayList<>();
 
 
-    public boolean isAddingRandomCategory(){
+    public boolean isAddingRandomCategory() {
         String category = Categories.findCategory(Randoms.pickNumberInRange(MIN_CATEGORY_NUM, MAX_CATEGORY_NUM));
-        if (canAddCategory(category)){
+        if (canAddCategory(category)) {
             categories.add(category);
             return true;
         }
@@ -30,18 +32,18 @@ public class RecommendCategory {
         return count < MAX_DUPLICATE_COUNT;
     }
 
-    public boolean canRecommendCategory(){
+    public boolean canRecommendCategory() {
         return categories.size() < MAX_CATEGORY_NUM;
     }
 
-    public String getDaysCategory(){
+    public String getDaysCategory() {
         return categories.get(categories.size() - 1);
     }
 
-    public String showRecommendCategory(){
+    public String showRecommendCategory() {
         StringBuilder sb = new StringBuilder();
         sb.append(ScreenElement.FIRST_ELEMENT).append(TAG);
-        for (String category : categories){
+        for (String category : categories) {
             sb.append(ScreenElement.MIDDLE_DIVISION).append(category);
         }
         sb.append(ScreenElement.LAST_ELEMENT);
