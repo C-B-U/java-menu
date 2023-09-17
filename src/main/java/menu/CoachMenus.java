@@ -16,8 +16,10 @@ public class CoachMenus {
     public void addCoachMenu(Coach coach, List<String> menus){
         while (true){
             String menu = recommendMenu.getMenu(menus);
+            List<String> recommendMenus = coachMenus.getOrDefault(coach, new ArrayList<>());
             if (canRecommendMenu(coach, menu)){
-                coachMenus.put(coach, List.of(menu));
+                recommendMenus.add(menu);
+                coachMenus.put(coach, recommendMenus);
                 break;
             }
         }
