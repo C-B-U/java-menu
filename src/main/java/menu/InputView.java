@@ -18,7 +18,14 @@ public class InputView {
         });
     }
 
-
+    public String inputForbiddenMenus(Coach coach){
+        return read(() -> {
+            outputView.printProgressCoachForbiddenMessage(coach.getName());
+            String menus = scanner.next();
+            inputValidator.validateForbiddenMenuNumber(menus);
+            return menus;
+        });
+    }
 
     private <T> T read(Supplier<T> supplier){
         while (true){
