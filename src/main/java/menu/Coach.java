@@ -19,6 +19,10 @@ public class Coach {
         }
     }
 
+    public void addForbiddenMenu(String menu){
+        forbiddenMenu.addForbiddenMenu(menu);
+    }
+
     public String getName() {
         return name;
     }
