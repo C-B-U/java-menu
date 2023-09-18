@@ -1,6 +1,7 @@
 package menu.io;
 
 import menu.constant.GameMessage;
+import menu.domain.RecommendResult;
 
 public class OutputView {
 
@@ -13,6 +14,13 @@ public class OutputView {
     }
 
     public void printCoachHateMenuRequest(final String coachName) {
-        System.out.println(String.format(GameMessage.COACH_HATE_MENU_REQUEST.getMessage()));
+        System.out.println(String.format(GameMessage.COACH_HATE_MENU_REQUEST.getMessage(), coachName));
+    }
+
+    public void printRecommendResult(final RecommendResult recommendResult) {
+        System.out.println(GameMessage.MENU_RECOMMEND_RESULT.getMessage());
+        System.out.println(GameMessage.RECOMMEND_DAYS.getMessage());
+        System.out.println(recommendResult.getResult());
+        System.out.println(GameMessage.RECOMMEND_FINISH.getMessage());
     }
 }

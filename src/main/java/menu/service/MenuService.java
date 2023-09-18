@@ -2,12 +2,12 @@ package menu.service;
 
 import menu.domain.*;
 import menu.repository.MenuRepository;
-import menu.utils.RandomMenuGenerator;
+import menu.utils.MenuRecommender;
 
 public class MenuService {
 
     private final MenuRepository menuRepository = new MenuRepository();
-    private final RandomMenuGenerator randomMenuGenerator = new RandomMenuGenerator();
+    private final MenuRecommender menuRecommender = new MenuRecommender();
 
     public Coaches saveCoaches(final Coaches coaches) {
         return menuRepository.saveCoaches(coaches);
@@ -20,6 +20,6 @@ public class MenuService {
 
     public RecommendResult recommendMenu() {
         final Coaches coaches = menuRepository.findCoaches();
-        return randomMenuGenerator.generateMenus(coaches);
+        return menuRecommender.recommendMenus(coaches);
     }
 }

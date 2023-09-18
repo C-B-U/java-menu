@@ -3,24 +3,26 @@ package menu.domain;
 import menu.constant.ErrorMessage;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 public class Coaches {
 
     private static final int MIN_COACH_NUM = 2;
     private static final int MAX_COACH_NUM = 5;
+    private static final int INIT_INDEX = 0;
     private final List<Coach> coaches;
     private int currentIndex;
 
     public Coaches(final List<Coach> coaches) {
-        validateSize(coaches);
+        validate(coaches);
         this.coaches = Collections.unmodifiableList(coaches);
-        this.currentIndex = 0;
+        this.currentIndex = INIT_INDEX;
     }
 
-    private void validateSize(final List<Coach> coaches) {
+    private void validate(final List<Coach> coaches) {
         final int size = coaches.size();
-        if (size < MIN_COACH_NUM || size > MAX_COACH_NUM) {
+        if (size < MIN_COACH_NUM || size > MAX_COACH_NUM || new HashSet<>(coaches).size() != coaches.size()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_COACH_NUM.getMessage());
         }
     }
@@ -31,13 +33,17 @@ public class Coaches {
     }
 
     private void checkCurrentIndex() {
-        if (hasNext()) {
-            currentIndex = 0;
+        if (currentIndex == coaches.size()) {
+            currentIndex = INIT_INDEX;
         }
     }
 
-    public boolean hasNext() {
-        return currentIndex == coaches.size();
+    public boolean isLast() {
+        final boolean flag = currentIndex == coaches.size();
+        if (flag) {
+            currentIndex = INIT_INDEX;
+        }
+        return flag;
     }
 
     public Coach findByName(final String coachName) {
@@ -50,5 +56,9 @@ public class Coaches {
     public Coach getNextCoach() {
         checkCurrentIndex();
         return this.coaches.get(currentIndex++);
+    }
+
+    public List<Coach> getCoaches() {
+        return this.coaches;
     }
 }

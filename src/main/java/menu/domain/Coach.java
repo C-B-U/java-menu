@@ -3,6 +3,8 @@ package menu.domain;
 import menu.constant.ErrorMessage;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Coach {
 
@@ -15,6 +17,7 @@ public class Coach {
     public Coach(final String name) {
         validateName(name);
         this.name = name;
+        this.recommendedMenus = new RecommendedMenus();
     }
 
     private void validateName(final String name) {
@@ -42,5 +45,24 @@ public class Coach {
 
     public void updateRecommendedMenus(final String menus) {
         this.recommendedMenus.addMenu(menus);
+    }
+
+    public List<String> getRecommendedMenus() {
+        return this.recommendedMenus.getMenus().stream()
+                .map(Menu::getName)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Coach coach = (Coach) o;
+        return Objects.equals(name, coach.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

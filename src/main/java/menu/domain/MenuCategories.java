@@ -13,18 +13,19 @@ public class MenuCategories {
 
     public boolean hasMaxNum(final MenuCategory menuCategory) {
         return menuCategories.stream()
-                .filter(menuCategory::equals)
+                .filter(mc -> mc == menuCategory)
                 .count() == MAX_COUNT;
-    }
-
-    public void addRecommendedMenu(final Coach coach, final String menus, final MenuCategory menuCategory) {
-        if (!menuCategories.contains(menuCategory)) {
-            menuCategories.add(menuCategory);
-        }
-        coach.updateRecommendedMenus(menus);
     }
 
     public boolean needNext() {
         return menuCategories.size() < DAY_COUNT;
+    }
+
+    public List<MenuCategory> getMenuCategories() {
+        return this.menuCategories;
+    }
+
+    public void addMenuCategory(final MenuCategory menuCategory) {
+        menuCategories.add(menuCategory);
     }
 }

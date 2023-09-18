@@ -2,7 +2,6 @@ package menu.controller;
 
 import menu.domain.Coaches;
 import menu.domain.HateMenus;
-import menu.domain.MenuCategories;
 import menu.domain.RecommendResult;
 import menu.io.InputManager;
 import menu.io.OutputView;
@@ -16,17 +15,18 @@ public class MenuController {
 
     public void run() {
         outputView.printStart();
-        final Coaches coaches = createCoach();
+        final Coaches coaches = createCoaches();
         createHateMenu(coaches);
         recommendMenu();
     }
 
     private void recommendMenu() {
         final RecommendResult recommendResult = menuService.recommendMenu();
+        outputView.printRecommendResult(recommendResult);
     }
 
     private void createHateMenu(final Coaches coaches) {
-        while (coaches.hasNext()) {
+        while (!coaches.isLast()) {
             final String coachName = coaches.getNextCoachName();
             outputView.printCoachHateMenuRequest(coachName);
             final HateMenus hateMenus = inputManager.readCoachHateMenu();
@@ -34,7 +34,7 @@ public class MenuController {
         }
     }
 
-    private Coaches createCoach() {
+    private Coaches createCoaches() {
         outputView.printCoachNameRequest();
         final Coaches coaches = inputManager.readCoachNames();
         return menuService.saveCoaches(coaches);

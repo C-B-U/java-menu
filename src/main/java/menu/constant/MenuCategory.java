@@ -40,4 +40,8 @@ public enum MenuCategory {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_CATEGORY_INDEX.getMessage()));
     }
+
+    public String getCategoryName() {
+        return this.category;
+    }
 }

@@ -13,4 +13,8 @@ public class RecommendedMenus {
     public void addMenu(final String menuName) {
         recommendedMenus.add(new Menu(menuName));
     }
+
+    public List<Menu> getMenus() {
+        return this.recommendedMenus;
+    }
 }
