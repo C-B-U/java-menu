@@ -55,3 +55,4 @@
 ## 열거형 목록
 - GameMessage
 - ErrorMessage
+- MenuCategory
