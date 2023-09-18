@@ -30,11 +30,15 @@
   - getName()
   - hasName()
   - updateHateMenus()
+  - getHateMenus()
+  - updateRecommendedMenus()
 
 - Coaches
   - getNextCoachName()
   - hasNext()
   - findByName()
+  - initIndex()
+  - getNextCoach()
 
 - InputValidator
   - validateInputDelimiter()
@@ -54,6 +58,19 @@
 - Menu
 
 - HateMenus
+
+- RandomMenuGenerator
+
+- RecommendedMenus
+  - addMenu()
+
+- MenuCategories
+  - hasMaxNum()
+  - addRecommendedMenus()
+  - needNext()
+
+- RecommendResult
+  - getResult()
 
 ## 열거형 목록
 - GameMessage

@@ -2,12 +2,15 @@ package menu.domain;
 
 import menu.constant.ErrorMessage;
 
+import java.util.List;
+
 public class Coach {
 
     private static final int MIN_NAME_LENGTH = 2;
     private static final int MAX_NAME_LENGTH = 4;
     private final String name;
     private HateMenus hateMenus;
+    private RecommendedMenus recommendedMenus;
 
     public Coach(final String name) {
         validateName(name);
@@ -31,5 +34,13 @@ public class Coach {
 
     public void updateHateMenus(final HateMenus hateMenus) {
         this.hateMenus = hateMenus;
+    }
+
+    public HateMenus getHateMenus() {
+        return this.hateMenus;
+    }
+
+    public void updateRecommendedMenus(final String menus) {
+        this.recommendedMenus.addMenu(menus);
     }
 }

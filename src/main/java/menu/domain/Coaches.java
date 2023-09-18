@@ -10,11 +10,12 @@ public class Coaches {
     private static final int MIN_COACH_NUM = 2;
     private static final int MAX_COACH_NUM = 5;
     private final List<Coach> coaches;
-    private int currentIndex = 0;
+    private int currentIndex;
 
     public Coaches(final List<Coach> coaches) {
         validateSize(coaches);
         this.coaches = Collections.unmodifiableList(coaches);
+        this.currentIndex = 0;
     }
 
     private void validateSize(final List<Coach> coaches) {
@@ -44,5 +45,10 @@ public class Coaches {
                 .filter(coach -> coach.hasName(coachName))
                 .findAny()
                 .orElseThrow(() -> new IllegalStateException(ErrorMessage.INVALID_COACH_NAME.getMessage()));
+    }
+
+    public Coach getNextCoach() {
+        checkCurrentIndex();
+        return this.coaches.get(currentIndex++);
     }
 }
