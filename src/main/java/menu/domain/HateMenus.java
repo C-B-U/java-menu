@@ -20,4 +20,10 @@ public class HateMenus {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MENU_SIZE.getMessage());
         }
     }
+
+    public boolean hasNoSameMenu(final String menuName) {
+        return menus.stream()
+                .map(Menu::getName)
+                .noneMatch(menuName::equals);
+    }
 }

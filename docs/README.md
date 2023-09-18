@@ -56,6 +56,7 @@
   - saveCoaches()
 
 - Menu
+  - getName()
 
 - HateMenus
 

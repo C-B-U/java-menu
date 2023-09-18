@@ -2,6 +2,8 @@ package menu.controller;
 
 import menu.domain.Coaches;
 import menu.domain.HateMenus;
+import menu.domain.MenuCategories;
+import menu.domain.RecommendResult;
 import menu.io.InputManager;
 import menu.io.OutputView;
 import menu.service.MenuService;
@@ -16,6 +18,11 @@ public class MenuController {
         outputView.printStart();
         final Coaches coaches = createCoach();
         createHateMenu(coaches);
+        recommendMenu();
+    }
+
+    private void recommendMenu() {
+        final RecommendResult recommendResult = menuService.recommendMenu();
     }
 
     private void createHateMenu(final Coaches coaches) {

@@ -16,4 +16,8 @@ public class Menu {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MENU_NAME.getMessage());
         }
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
