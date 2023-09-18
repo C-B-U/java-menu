@@ -7,7 +7,7 @@ public class MenuService {
 
     private final MenuRepository menuRepository = new MenuRepository();
 
-    public void saveCoaches(final Coaches coaches) {
-        menuRepository.saveCoaches(coaches);
+    public Coaches saveCoaches(final Coaches coaches) {
+        return menuRepository.saveCoaches(coaches);
     }
 }

@@ -13,12 +13,20 @@ public class MenuController {
 
     public void run() {
         outputView.printStart();
-        createCoach();
+        final Coaches coaches = createCoach();
+        createHateMenu(coaches);
     }
 
-    private void createCoach() {
+    private void createHateMenu(final Coaches coaches) {
+        while (coaches.hasNext()) {
+            final String coachName = coaches.getNextCoachName();
+            outputView.printCoachHateMenuRequest(coachName);
+        }
+    }
+
+    private Coaches createCoach() {
         outputView.printCoachNameRequest();
         final Coaches coaches = inputManager.readCoachNames();
-        menuService.saveCoaches(coaches);
+        return menuService.saveCoaches(coaches);
     }
 }

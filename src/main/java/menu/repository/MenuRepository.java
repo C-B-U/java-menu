@@ -6,7 +6,8 @@ public class MenuRepository {
 
     private Coaches coaches;
 
-    public void saveCoaches(final Coaches coaches) {
+    public Coaches saveCoaches(final Coaches coaches) {
         this.coaches = coaches;
+        return this.coaches;
     }
 }

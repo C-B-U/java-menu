@@ -6,7 +6,7 @@
   - [x] 코치 이름 길이 2 ~ 4 사이인지 검증
   - [x] 코치 5명 이하인지 검증
   - [x] 잘못된 입력시 에러 메시지 출력 및 재시도
-- [ ] 코치별 못 먹는 메뉴 입력 요청 메시지 출력
+- [x] 코치별 못 먹는 메뉴 입력 요청 메시지 출력
 - [ ] 코치별 못 먹는 메뉴 입력
   - [ ] 개수 0 ~ 2개 사이인지 검증
   - [ ] 메뉴 목록에 포함된 메뉴인지 검증
@@ -27,8 +27,11 @@
   - printCoachNameRequest()
 
 - Coach
+  - getName()
 
 - Coaches
+  - getNextCoachName()
+  - hasNext()
 
 - InputValidator
   - validateInputDelimiter()

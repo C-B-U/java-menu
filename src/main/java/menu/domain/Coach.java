@@ -19,4 +19,8 @@ public class Coach {
             throw new IllegalArgumentException(ErrorMessage.INVALID_COACH_NAME_LENGTH.getMessage());
         }
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

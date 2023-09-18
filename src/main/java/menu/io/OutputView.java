@@ -11,4 +11,8 @@ public class OutputView {
     public void printCoachNameRequest() {
         System.out.println(GameMessage.COACH_NAME_REQUEST.getMessage());
     }
+
+    public void printCoachHateMenuRequest(final String coachName) {
+        System.out.println(String.format(GameMessage.COACH_HATE_MENU_REQUEST.getMessage()));
+    }
 }
