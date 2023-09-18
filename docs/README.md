@@ -1,0 +1,79 @@
+## 기능 목록
+- [x] 시작 메시지 출력
+- [x] 코치 이름 입력 요청 메시지 출력
+- [x] 코치 이름 입력
+  - [x] 코치 이름 입력값 쉼표로 구분됐는지 검증
+  - [x] 코치 이름 길이 2 ~ 4 사이인지 검증
+  - [x] 코치 5명 이하인지 검증
+  - [x] 잘못된 입력시 에러 메시지 출력 및 재시도
+- [x] 코치별 못 먹는 메뉴 입력 요청 메시지 출력
+- [x] 코치별 못 먹는 메뉴 입력
+  - [x] 개수 0 ~ 2개 사이인지 검증
+  - [x] 메뉴 목록에 포함된 메뉴인지 검증
+  - [x] 잘못된 입력시 에러 메시지 출력 및 재시도
+- [x] 메뉴 추천
+  - [x] 랜덤 메뉴 생성
+  - [x] 한 주에 같은 카테고리 최대 2회인지 검증
+  - [x] 각 코치에게 중복된 메뉴가 없는지 검증
+- [x] 추천 완료 메시지 출력
+
+## 구현 클래스
+
+- MenuController
+  - run()
+
+- OutputView
+  - printStart()
+  - printCoachNameRequest()
+
+- Coach
+  - getName()
+  - hasName()
+  - updateHateMenus()
+  - getHateMenus()
+  - updateRecommendedMenus()
+
+- Coaches
+  - getNextCoachName()
+  - hasNext()
+  - findByName()
+  - initIndex()
+  - getNextCoach()
+
+- InputValidator
+  - validateInputDelimiter()
+
+- InputView
+  - readCoachNames()
+
+- InputManager
+  - readCoachNames()
+
+- MenuService
+  - saveCoaches()
+
+- MenuRepository
+  - saveCoaches()
+
+- Menu
+  - getName()
+
+- HateMenus
+
+- RandomMenuGenerator
+
+- RecommendedMenus
+  - addMenu()
+
+- MenuCategories
+  - hasMaxNum()
+  - addRecommendedMenus()
+  - needNext()
+
+- RecommendResult
+  - getResult()
+
+## 열거형 목록
+- GameMessage
+- ErrorMessage
+- MenuCategory
