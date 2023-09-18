@@ -9,7 +9,11 @@ public class MenuCategories {
 
     private static final Long MAX_COUNT = 2L;
     private static final Integer DAY_COUNT = 5;
-    private final List<MenuCategory> menuCategories = new ArrayList<>();
+    private final List<MenuCategory> menuCategories;
+
+    public MenuCategories() {
+        this.menuCategories = new ArrayList<>();
+    }
 
     public boolean hasMaxNum(final MenuCategory menuCategory) {
         return menuCategories.stream()
