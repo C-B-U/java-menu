@@ -8,5 +8,10 @@ public class MenuController {
 
     public void run() {
         outputView.printStart();
+        createCoach();
+    }
+
+    private void createCoach() {
+        outputView.printCoachNameRequest();
     }
 }
