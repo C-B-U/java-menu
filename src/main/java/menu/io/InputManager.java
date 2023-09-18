@@ -2,6 +2,7 @@ package menu.io;
 
 import menu.domain.Coach;
 import menu.domain.Coaches;
+import menu.domain.HateMenus;
 
 import java.util.Arrays;
 import java.util.function.Supplier;
@@ -19,6 +20,10 @@ public class InputManager {
                     .map(Coach::new)
                     .collect(Collectors.toList()));
         });
+    }
+
+    public HateMenus readCoachHateMenu() {
+        return read(() -> new HateMenus(Arrays.asList(inputView.readHateMenus().split(INPUT_DELIMITER))));
     }
 
     private <T> T read(final Supplier<T> supplier) {

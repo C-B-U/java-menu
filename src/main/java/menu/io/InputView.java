@@ -11,4 +11,10 @@ public class InputView {
         inputValidator.validateInputDelimiter(input);
         return input;
     }
+
+    public String readHateMenus() {
+        final String input = Console.readLine();
+        inputValidator.validateHateMenus(input);
+        return input;
+    }
 }

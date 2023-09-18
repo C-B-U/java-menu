@@ -1,6 +1,7 @@
 package menu.controller;
 
 import menu.domain.Coaches;
+import menu.domain.HateMenus;
 import menu.io.InputManager;
 import menu.io.OutputView;
 import menu.service.MenuService;
@@ -21,6 +22,7 @@ public class MenuController {
         while (coaches.hasNext()) {
             final String coachName = coaches.getNextCoachName();
             outputView.printCoachHateMenuRequest(coachName);
+            final HateMenus hateMenus = inputManager.readCoachHateMenu();
         }
     }
 
