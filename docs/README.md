@@ -26,6 +26,13 @@
   - printStart()
   - printCoachNameRequest()
 
+- Coach
+
+- Coaches
+
+- InputValidator
+  - validateInputDelimiter()
+
 ## 열거형 목록
 - GameMessage
 - ErrorMessage
