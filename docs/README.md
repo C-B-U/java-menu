@@ -16,3 +16,14 @@
   - [ ] 한 주에 같은 카테고리 최대 2회인지 검증
   - [ ] 각 코치에게 중복된 메뉴가 없는지 검증
 - [ ] 추천 완료 메시지 출력
+
+## 구현 클래스
+
+- MenuController
+  - run()
+
+- OutputView
+  - printStart()
+
+## 열거형 목록
+- GameMessage
