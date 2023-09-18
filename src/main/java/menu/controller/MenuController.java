@@ -23,6 +23,7 @@ public class MenuController {
             final String coachName = coaches.getNextCoachName();
             outputView.printCoachHateMenuRequest(coachName);
             final HateMenus hateMenus = inputManager.readCoachHateMenu();
+            menuService.updateHateMenus(coachName, hateMenus);
         }
     }
 

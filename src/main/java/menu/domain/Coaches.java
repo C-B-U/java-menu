@@ -38,4 +38,11 @@ public class Coaches {
     public boolean hasNext() {
         return currentIndex == coaches.size();
     }
+
+    public Coach findByName(final String coachName) {
+        return this.coaches.stream()
+                .filter(coach -> coach.hasName(coachName))
+                .findAny()
+                .orElseThrow(() -> new IllegalStateException(ErrorMessage.INVALID_COACH_NAME.getMessage()));
+    }
 }

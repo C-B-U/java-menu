@@ -28,10 +28,13 @@
 
 - Coach
   - getName()
+  - hasName()
+  - updateHateMenus()
 
 - Coaches
   - getNextCoachName()
   - hasNext()
+  - findByName()
 
 - InputValidator
   - validateInputDelimiter()

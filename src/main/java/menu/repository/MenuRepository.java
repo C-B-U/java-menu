@@ -10,4 +10,8 @@ public class MenuRepository {
         this.coaches = coaches;
         return this.coaches;
     }
+
+    public Coaches findCoaches() {
+        return this.coaches;
+    }
 }
