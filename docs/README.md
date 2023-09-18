@@ -33,6 +33,12 @@
 - InputValidator
   - validateInputDelimiter()
 
+- InputView
+  - readCoachNames()
+
+- InputManager
+  - readCoachNames()
+
 ## 열거형 목록
 - GameMessage
 - ErrorMessage
